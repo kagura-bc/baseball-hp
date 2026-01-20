@@ -40,7 +40,6 @@ header a {
 }
 
 /* ヒーローエリア（全体枠） */
-/* 134行目付近の .hero を書き換えてください */
 .hero {
     position: relative;
     height: 100vh;
@@ -117,12 +116,28 @@ header a {
 /* ボタンのデザイン */
 .btn {
     display: inline-block;
-    background-color: #d32f2f; /* 赤色 */
+    
+    /* 赤い背景を消して、透明にする */
+    background-color: rgba(211, 47, 47, 0.3); /* 少しだけ赤みを残して透けさせる */
+    /* または完全に透明なら background-color: transparent; */
+
+    /* 白い枠線をつける */
+    border: 2px solid white; 
+    
     color: white;
     padding: 10px 30px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px; /* 角を丸くすると今っぽいです */
     margin-top: 20px;
+    
+    /* マウスを乗せた時の動き（ホバー） */
+    transition: all 0.3s;
+}
+
+/* マウスを乗せた時に赤くする設定を追加 */
+.btn:hover {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
 }
 
 /* スケジュール表 */
