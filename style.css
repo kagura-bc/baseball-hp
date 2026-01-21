@@ -402,5 +402,9 @@ footer {
     .slide {
         background-position: top center;
     }
-    /* ▲▲▲ ここまで追加 ▲▲▲ */
+    /* ▼▼▼ 追加：キャッチコピーの位置を下げる ▼▼▼ */
+    .hero-title, h1 {
+        /* top: 50%; が真ん中なので、60%や70%に増やすと下がります */
+        top: 60%; 
+    }
 }
