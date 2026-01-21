@@ -373,7 +373,7 @@ footer {
 
   /* キャッチコピー（H2）のスマホ用デザイン */
   .hero-text h2 {
-    font-size: 3.5rem;       /* 画面幅で縮小せず、あえて大きく固定 */
+    font-size: 11vw;       
     white-space: normal;     /* 「本気で」と「遊ぼう」で改行させる許可 */
     line-height: 1.2;        /* 行間を詰めて塊感を出す */
     letter-spacing: 0.02em;  /* 文字間隔を調整 */
