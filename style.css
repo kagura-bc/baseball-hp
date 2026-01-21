@@ -18,6 +18,11 @@ html, body {
   padding: 20px;
 }
 
+/* PCでは改行タグを無効化（非表示）にする */
+.sp-br {
+    display: none;
+}
+
 /* =========================================
    2. ヘッダー設定
    ========================================= */
@@ -349,6 +354,7 @@ footer {
   .hero {
     height: 60vh;       /* スマホの画面高さを考慮して少し狭く */
     min-height: 400px;  /* 最低限の高さを確保 */
+    
   }
 
   /* テキストの位置調整（スマホ版） */
@@ -363,7 +369,7 @@ footer {
   .hero-text h2 {
     font-size: 3.5rem;       /* 画面幅で縮小せず、あえて大きく固定 */
     white-space: normal;     /* 「本気で」と「遊ぼう」で改行させる許可 */
-    line-height: 1.1;        /* 行間を詰めて塊感を出す */
+    line-height: 1.2;        /* 行間を詰めて塊感を出す */
     letter-spacing: 0.02em;  /* 文字間隔を調整 */
     margin-bottom: 0;
     width: auto;
@@ -429,4 +435,18 @@ footer {
         /* top: 50%; が真ん中なので、60%や70%に増やすと下がります */
         top: 60%; 
     }
+
+    /* ▼▼▼ 追加：スマホを「横向き」にした時の特別ルール ▼▼▼ */
+@media screen and (orientation: landscape) {
+  .sp-br {
+    display: none; /* 横向きなら改行タグを無視（1行にする） */
+  }
+  .hero-text h2 {
+    font-size: 2.5rem; /* 横向きだと高さが狭いので、文字を少し小さくする */
+    white-space: nowrap; /* 強制的に1行にする */
+  }
+  .hero-text {
+    bottom: 20px; /* 位置も微調整 */
+  }
+}
 }
