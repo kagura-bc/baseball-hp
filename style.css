@@ -397,4 +397,10 @@ footer {
     align-items: center;
     gap: 30px;
   }
+
+  /* ▼▼▼ ここから追加（スライドショーの画像位置調整） ▼▼▼ */
+    .slide {
+        background-position: top center;
+    }
+    /* ▲▲▲ ここまで追加 ▲▲▲ */
 }
