@@ -14,29 +14,61 @@ body {
     padding: 20px;
 }
 
-/* ヘッダー */
+/* ヘッダー全体の設定 */
 header {
-    background-color: #006400; /* 濃い緑 */
+    background-color: #5D989B;
     color: white;
-    padding: 1rem 0;
+    
+    /* ▼ 高さを固定して強制的に薄くする */
+    height: 60px; 
+    padding: 0; /* 余白はなし */
+
+    /* 固定表示の設定 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    /* 影をつけて少し浮いている感を出す（お好みで） */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
+/* ヘッダーの中身（コンテナ） */
 header .container {
-    display: flex;
-    justify-content: space-between; /* ロゴとメニューを左右に離す */
-    align-items: center;
+    display: flex;             /* 横並びにする */
+    justify-content: space-between; /* 左右に配置 */
+    align-items: center;       /* 上下の真ん中に配置 */
+    height: 100%;              /* ヘッダーの高さ(60px)一杯に使う */
+    padding: 0 20px;           /* 左右に少し隙間を空ける */
+    max-width: 1000px;         /* 元の設定を維持 */
+    margin: 0 auto;            /* 中央寄せ */
 }
 
+/* ロゴ（KAGURA B.C.）の設定 */
+/* ※HTMLで h1 タグを使っていると想定しています */
+header h1, header .logo {
+    margin: 0;        /* 勝手につく隙間を完全に消す */
+    padding: 0;
+    font-size: 1.5rem; /* 文字の大きさ */
+    line-height: 1;    /* 行の高さを詰める */
+}
+
+/* メニューリスト（ul）の設定 */
 header ul {
+    margin: 0;        /* 勝手につく隙間を消す */
+    padding: 0;
     list-style: none;
-    display: flex;
-    gap: 20px;
+    display: flex;       /* メニュー項目を横並びにする */
+    gap: 20px;           /* メニュー間の隙間 */
+    align-items: center; /* メニューの文字も上下中央に */
 }
 
 header a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.9rem; /* メニュー文字を少し小さくしてスッキリさせる */
 }
 
 /* ヒーローエリア（全体枠） */
@@ -117,27 +149,21 @@ header a {
 .btn {
     display: inline-block;
     
-    /* 赤い背景を消して、透明にする */
-    background-color: rgba(211, 47, 47, 0.3); /* 少しだけ赤みを残して透けさせる */
-    /* または完全に透明なら background-color: transparent; */
-
+    /* ▼ ここを変更しました（透けない赤色にする） */
+    background-color: #d32f2f; 
+    
     /* 白い枠線をつける */
+    /* ※もし枠線も赤くしたい場合は、ここも #d32f2f に変えてください */
     border: 2px solid white; 
     
     color: white;
     padding: 10px 30px;
     text-decoration: none;
-    border-radius: 30px; /* 角を丸くすると今っぽいです */
+    border-radius: 30px;
     margin-top: 20px;
     
     /* マウスを乗せた時の動き（ホバー） */
     transition: all 0.3s;
-}
-
-/* マウスを乗せた時に赤くする設定を追加 */
-.btn:hover {
-    background-color: #d32f2f;
-    border-color: #d32f2f;
 }
 
 /* スケジュール表 */
@@ -154,7 +180,7 @@ header a {
 }
 
 .schedule-table th {
-    background-color: #006400;
+    background-color: #5D989B; /* ここを #006400 から変更 */
     color: white;
 }
 
@@ -216,17 +242,20 @@ footer {
         bottom: 9px;
     }
 
-    /* 2. スマホ用メニューのデザイン（最初は隠しておく） */
+    /* スマホ用メニューのデザイン（一部抜粋） */
     .global-nav {
         position: fixed;
         top: 0;
-        right: -100%; /* 画面の右外側に隠す */
-        width: 70%;   /* メニューの幅 */
+        right: -100%;
+        width: 70%;
         height: 100vh;
-        background-color: rgba(0, 100, 0, 0.95); /* 背景色（少し透けた緑） */
+        
+        /* ここを変更：RGB(0, 100, 0) から (93, 152, 155) へ */
+        background-color: rgba(93, 152, 155, 0.95); 
+        
         transition: all 0.3s;
         z-index: 90;
-        padding-top: 60px; /* 上に余白 */
+        padding-top: 60px;
     }
 
     /* メニューが出てきた時の位置 */
