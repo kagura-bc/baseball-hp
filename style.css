@@ -443,50 +443,48 @@ footer {
     }
 
     /* ▼▼▼ 追加：スマホを「横向き」にした時の特別ルール ▼▼▼ */
-@media screen and (orientation: landscape) {
-  .sp-br {
-    display: none; /* 横向きなら改行タグを無視（1行にする） */
-  }
-  .hero-text h2 {
-    font-size: 2.5rem; /* 横向きだと高さが狭いので、文字を少し小さくする */
-    white-space: nowrap; /* 強制的に1行にする */
-  }
-  .hero-text {
-    bottom: 20px; /* 位置も微調整 */
-  }
+/* ▼▼▼ 追加：スマホを「横向き」にした時の特別ルール ▼▼▼ */
+  @media screen and (orientation: landscape) {
+    .sp-br {
+      display: none; /* 横向きなら改行タグを無視 */
+    }
+    .hero-text h2 {
+      font-size: 2.5rem; /* 横向き用サイズ */
+      white-space: nowrap; 
+    }
+    .hero-text {
+      bottom: 20px; 
+    }
+  } /* ★ここで一旦「横向きルール」を終了させます★ */
 
-  /* ▼▼▼ 数字エリア：余白はそのままで、文字だけ小さくして横並びにする ▼▼▼ */
+
+  /* ▼▼▼ 数字エリア：スマホなら縦向きでも横向きでも適用させる ▼▼▼ */
+  /* （横向きルールの中から外に出したので、縦持ちでも適用されます） */
   
   .numbers-grid {
     flex-wrap: nowrap;       /* 折り返しを禁止して1行にする */
-    gap: 10px;               /* 項目同士の間隔を少し狭める（PCは30px） */
+    gap: 10px;               /* 項目同士の間隔を少し狭める */
   }
 
   .number-item {
-    min-width: 0;            /* 「最低200px」の制限を解除して縮小可能にする */
+    min-width: 0;            /* 縮小可能にする */
     flex: 1;                 /* 3つの幅を均等にする */
-    /* padding: 0;  ←これは書かない（余白を残すため） */
   }
 
-  /* ラベル（「年間試合数」など） */
   .num-label {
-    font-size: 0.75rem;      /* 文字数が多いと溢れるので、12px程度まで小さく */
+    font-size: 0.75rem;      /* 文字数が多いと溢れるので小さく */
     white-space: nowrap;     /* 改行させない */
     margin-bottom: 2px;
   }
 
-  /* 数字 */
   .count-up {
-    font-size: 2rem;         /* ★ここがポイント：スマホの時だけ 2rem に上書き */  
+    font-size: 2rem;         /* スマホの時だけ 2rem に上書き */  
     line-height: 1.2;
   }
 
-  /* 単位 */
   .unit {
     font-size: 0.8rem;       /* 単位も少し控えめに */
   }
-}
-}
 
 /* =========================================
    8. スケジュールカード（スマホ表示対策版）
