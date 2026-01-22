@@ -7,6 +7,7 @@
     <title>KAGURA・ベースボールクラブ | 公式サイト</title>
     <link rel="preconnect" href="https://fonts.googleapis.com/css2">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?ver=9">
 </head>
@@ -324,12 +325,15 @@
 
                 // カードの中身（HTML）
                 card.innerHTML = `
-                    <div class="card-date">${date.replace(' ', '<br>')}</div>
+                    <div class="card-date">
+                        <span class="date-main">${date.split('(')[0]}</span>
+                        <span class="date-week">(${date.split('(')[1] || ''}</span>
+                    </div>
                     <div class="card-info">
                         <div class="info-title">${content}</div>
                         <div class="info-sub">
-                            <span>🕒 ${time}</span>
-                            <span>📍 ${place}</span>
+                            <span><i class="material-icons">schedule</i> ${time}</span>
+                            <span><i class="material-icons">place</i> ${place}</span>
                         </div>
                     </div>
                 `;

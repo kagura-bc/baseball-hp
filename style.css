@@ -458,103 +458,139 @@ footer {
 }
 
 /* =========================================
-   8. スケジュールカード（追加分）
+   8. スケジュールカード（リッチデザイン版）
    ========================================= */
+
+/* アイコンの位置調整 */
+.material-icons {
+  font-size: 16px; /* 文字サイズに合わせる */
+  vertical-align: text-bottom; /* 文字と高さを揃える */
+  margin-right: 2px;
+  color: #5D989B; /* アイコンもチームカラーに */
+}
+
 .card-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* カード同士の間隔 */
-  padding: 10px 0;
+  gap: 15px;
+  padding: 10px 5px; /* 上下左右に少し余白を作る */
 }
 
 .schedule-card {
-  font-family: "Noto Sans JP", sans-serif; /* 追加 */
+  font-family: "Noto Sans JP", sans-serif;
   background: #fff;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 12px; /* 丸みを強くしてアプリっぽく */
+  padding: 0; /* 中身のレイアウトで余白を作るので一旦0に */
   display: flex;
-  align-items: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* ほんのり影 */
-  border-left: 6px solid #5D989B; /* チームカラーのアクセント */
+  align-items: stretch; /* 高さを揃える */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 影をリッチに */
+  overflow: hidden; /* 角丸からはみ出さないように */
+  border-left: 6px solid #5D989B; /* 左の線 */
   
-  /* アニメーション用（初期状態） */
+  /* アニメーション */
   opacity: 0;
   transform: translateY(20px);
-  /* fill-mode: forwards でアニメーション後の状態を維持 */
   animation: cardFadeInUp 0.6s ease-out forwards;
 }
 
-/* 試合の時は少しデザインを変える（JSでクラス付与） */
+/* 試合の時のアクセントカラー（赤） */
 .schedule-card.match {
-  border-left-color: #d32f2f; /* 試合は赤色アクセント */
-  background: #fff5f5;
+  border-left-color: #d32f2f;
+}
+.schedule-card.match .material-icons {
+  color: #d32f2f; /* アイコンも赤くする */
+}
+.schedule-card.match .card-date {
+    background-color: #fff5f5; /* 背景もほんのり赤く */
+    color: #d32f2f;
 }
 
-/* 左側：日付エリア */
+/* 左側：日付エリア（デザイン強化） */
 .card-date {
-  font-family: "Roboto Condensed", sans-serif; /* 追加 */
-  font-size: 1.4rem; /* 数字なので少し大きく */
-  letter-spacing: 0.05em; /* 文字間を少し開ける */
-  flex: 0 0 80px; /* 幅固定 */
-  text-align: center;
-  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  flex: 0 0 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f8f9; /* 薄い色を敷いてエリアを分ける */
   color: #5D989B;
   border-right: 1px solid #eee;
-  margin-right: 20px;
-  font-size: 1.1rem;
-  line-height: 1.4;
+}
+
+.date-main {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.date-week {
+  font-size: 0.9rem;
+  margin-top: 4px;
+  font-weight: bold;
 }
 
 /* 右側：情報エリア */
 .card-info {
   flex-grow: 1;
+  padding: 15px 20px; /* ここで余白を取る */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .info-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: bold;
   margin-bottom: 8px;
   color: #333;
+  line-height: 1.4;
 }
 
 .info-sub {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #666;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 12px 20px; /* 上下左右の間隔 */
 }
 
-/* 場所や時間のアイコン風装飾 */
 .info-sub span {
-  font-family: "Roboto Condensed", sans-serif; /* 追加 */
-  font-weight: 700; /* 太字で見やすく */
-  display: inline-block;
-  background: #f4f4f4;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.85rem;
+  display: inline-flex; /* アイコンと文字をきれいに並べる */
+  align-items: center;
+  font-family: "Roboto Condensed", "Noto Sans JP", sans-serif;
+  font-weight: 500;
 }
 
 /* アニメーション定義 */
 @keyframes cardFadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* スマホ用の微調整 */
+/* ▼▼▼ スマホ用の特別設定 ▼▼▼ */
 @media screen and (max-width: 480px) {
   .schedule-card {
-    padding: 15px;
+    /* スマホでは影が切れないようにマージンを確保 */
+    margin: 2px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 少し影を控えめに */
   }
+
+  /* スマホでは日付を少しコンパクトに */
   .card-date {
-    flex: 0 0 60px;
-    margin-right: 15px;
-    font-size: 1rem;
+    flex: 0 0 70px;
   }
+  .date-main { font-size: 1.2rem; }
+  .date-week { font-size: 0.8rem; }
+  
+  .card-info {
+    padding: 12px 15px;
+  }
+  
   .info-title {
     font-size: 1rem;
+  }
+  
+  .info-sub span {
+    font-size: 0.85rem;
   }
 }
