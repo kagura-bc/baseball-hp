@@ -630,3 +630,17 @@ footer {
     font-size: 0.8rem;
   }
 }
+
+/* Q&Aの質問文の右側に余白を作って、アイコンと被らないようにする */
+.faq-question {
+    padding-right: 50px; /* アイコンの分だけ右側に余白を空ける */
+    position: relative;  /* アイコンの位置基準 */
+}
+
+/* アイコンの位置を右端に固定 */
+.faq-icon {
+    position: absolute;
+    right: 15px; /* 右端からの距離 */
+    top: 50%;
+    transform: translateY(-50%); /* 上下の真ん中に配置 */
+}
