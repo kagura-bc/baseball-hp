@@ -693,3 +693,13 @@ footer {
     font-family: 'Zen Maru Gothic', serif;
     font-weight: 700;
 }
+
+/* =========================================
+   11. FAQセクションのスマホ微調整
+   ========================================= */
+@media screen and (max-width: 768px) {
+  .faq-question {
+    font-size: 0.9rem;
+    padding: 12px 50px 12px 15px; /* スマホでは上下の余白を少し詰めるとよりスッキリします */
+  }
+}
