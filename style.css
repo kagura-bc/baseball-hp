@@ -677,3 +677,28 @@ footer {
 .faq-item.open .faq-icon {
     transform: translateY(-50%) rotate(45deg);
 }
+
+/* =========================================
+   10. ABOUTセクションのフォント設定（温かみのあるデザイン）
+   ========================================= */
+.about {
+    /* Zen Maru Gothicを適用（HTMLでの読み込みを忘れずに！） */
+    font-family: 'Zen Maru Gothic', serif; 
+    line-height: 2.0;       /* 行間をさらにゆったりさせて読みやすく */
+    letter-spacing: 0.05em; /* 文字の間隔を広げて優雅な印象に */
+    color: #444;           /* 少しだけ色を薄めて柔らかさを出す */
+}
+
+.about h2 {
+    font-family: 'Zen Maru Gothic', serif;
+    font-weight: 700;
+}
+
+/* 「〜年前」の数字部分を少し強調 */
+#team-history {
+    font-family: 'Roboto Condensed', sans-serif; /* 数字はシュッとしたフォントでも綺麗です */
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #5D989B; /* ヘッダー等で使っているチームカラー */
+    margin: 0 4px;
+}
