@@ -634,7 +634,7 @@ footer {
    9. FAQセクションの微調整
    ========================================= */
 .faq-question {
-    font-size: 1.0rem;
+    font-size: 0.9rem;
     font-weight: bold;
     padding: 15px;
     /* ここを 50px 程度に増やす */
