@@ -693,12 +693,3 @@ footer {
     font-family: 'Zen Maru Gothic', serif;
     font-weight: 700;
 }
-
-/* 「〜年前」の数字部分を少し強調 */
-#team-history {
-    font-family: 'Roboto Condensed', sans-serif; /* 数字はシュッとしたフォントでも綺麗です */
-    font-weight: bold;
-    font-size: 1.4rem;
-    color: #5D989B; /* ヘッダー等で使っているチームカラー */
-    margin: 0 4px;
-}
