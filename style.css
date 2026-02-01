@@ -721,3 +721,30 @@ footer {
     padding: 12px 50px 12px 15px; /* スマホでは上下の余白を少し詰めるとよりスッキリします */
   }
 }
+
+/* =========================================
+   12. ABOUTセクションのスマホ微調整
+   ========================================= */
+@media screen and (max-width: 768px) {
+  #about {
+    /* 左右の余白を少し削って、文字が入るスペースを広げる */
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .about-text {
+    /* 文字サイズを少しだけ小さくし、文字間隔を詰める */
+    font-size: 1rem;         
+    letter-spacing: 0.01em; /* 0.05emから微調整 */
+    line-height: 1.8;       /* 行間も少し詰めると収まりが良くなります */
+    width: 95%;             /* 横幅を広げる */
+  }
+}
+
+/* さらに小さい画面（iPhone SEなど）向けの最終手段 */
+@media screen and (max-width: 375px) {
+  .about-text {
+    font-size: 0.95rem;
+    letter-spacing: 0;      /* 文字間隔をゼロにして確実に収める */
+  }
+}
