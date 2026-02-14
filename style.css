@@ -5,7 +5,7 @@ body {
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: #333; 
   margin: 0; /* 念のため追加 */
-  /* ▼▼▼ 追加：ヘッダーの高さ(60px)だけ全体を下に下げる ▼▼▼ */
+  /* ヘッダーの高さ(60px)だけ全体を下に下げる */
   padding-top: 60px;
 }
 
@@ -93,7 +93,7 @@ header a {
 }
 
 /* =========================================
-   3. ヒーローセクション（トップ画）修正版
+   3. ヒーローセクション（トップ画）
    ========================================= */
 .hero {
     height: 100vh;
@@ -185,7 +185,6 @@ header a {
   font-family: 'Kiwi Maru', serif !important;
 }
 
-/* タイトル部分の修正 */
 #about h2 {
   font-size: 1.8rem;
   margin-bottom: 40px;
@@ -439,17 +438,17 @@ footer {
     gap: 30px;
   }
 
-  /* ▼▼▼ ここから追加（スライドショーの画像位置調整） ▼▼▼ */
+  /*（スライドショーの画像位置調整）*/
     .slide {
         background-position: top center;
     }
-    /* ▼▼▼ 追加：キャッチコピーの位置を下げる ▼▼▼ */
+    /* キャッチコピーの位置を下げる */
     .hero-title, h1 {
         /* top: 50%; が真ん中なので、60%や70%に増やすと下がります */
         top: 60%; 
     }
 
-/* ▼▼▼ 追加：スマホを「横向き」にした時の特別ルール ▼▼▼ */
+/* 追加：スマホを「横向き」にした時の特別ルール */
   @media screen and (orientation: landscape) {
     .sp-br {
       display: none; /* 横向きなら改行タグを無視 */
@@ -464,7 +463,7 @@ footer {
   } /* ★ここで一旦「横向きルール」を終了させます★ */
 
 
-  /* ▼▼▼ 数字エリア：スマホなら縦向きでも横向きでも適用させる ▼▼▼ */
+  /*  数字エリア：スマホなら縦向きでも横向きでも適用させる */
   /* （横向きルールの中から外に出したので、縦持ちでも適用されます） */
   
   .numbers-grid {
@@ -747,4 +746,58 @@ footer {
     font-size: 0.95rem;
     letter-spacing: 0;      /* 文字間隔をゼロにして確実に収める */
   }
+}
+
+/* =========================================
+   13. インスタグラムアイコンの調整
+   ========================================= */
+
+/* インスタグラムカラーの定義 */
+.insta-color {
+    /* インスタ公式のようなグラデーションを指定 */
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    /* 背景色を文字の形に切り抜く */
+    -webkit-background-clip: text;
+    /* 文字自体の色を透明にする（背景色を見せるため） */
+    color: transparent;
+    /* 他のスタイルと競合しないようimportantをつける */
+    display: inline-block;
+}
+
+/* ヘッダーのインスタアイコン */
+.insta-icon i {
+    font-size: 1.8rem; /* 文字より少し大きく */
+}
+/* ヘッダーアイコンにグラデーションを適用 */
+.insta-icon i {
+    /* 上記の.insta-colorと同じ設定 */
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+/* フッターのインスタアイコン */
+.footer-insta-icon i {
+    text-decoration: none;
+    font-size: 2.2rem; /* フッターは目立つように少し大きく */
+    transition: opacity 0.3s;
+}
+/* フッターアイコンにグラデーションを適用 */
+.footer-insta-icon i {
+    /* 上記の.insta-colorと同じ設定 */
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.footer-insta-icon:hover {
+    opacity: 0.7;
+}
+
+/* スマホメニュー内のアイコン調整 */
+@media screen and (max-width: 768px) {
+    .insta-icon i {
+        font-size: 2rem; /* スマホメニュー内ではタップしやすいよう大きく */
+    }
 }
