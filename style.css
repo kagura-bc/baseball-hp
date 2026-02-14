@@ -652,9 +652,9 @@ footer {
     /* 3. もし「もっと軽く」したい場合は、数値を指定します。
        通常の太字(700)より少し軽い 500 くらいが「軽めの太字」に見えます */
     /* font-weight: 500; */
-
+    color: #333;
     font-size: 1.0rem;
-    font-weight: 500;
+    font-weight: 600;
     padding: 15px;
     padding-right: 55px; 
     cursor: pointer;
