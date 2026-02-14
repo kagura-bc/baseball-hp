@@ -58,6 +58,8 @@ header h1, header .logo {
   padding: 0;
   font-size: 1.5rem;
   line-height: 1;
+  white-space: nowrap;
+  margin-right: 40px;
 }
 
 /* ロゴ横の since 2015 */
@@ -65,7 +67,7 @@ header h1, header .logo {
   font-size: 0.7em;
   font-weight: bold;
   margin-left: 10px;
-  opacity: 0.9;
+  opacity: 1;
   letter-spacing: 0.02em;
 }
 
@@ -76,7 +78,7 @@ header ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  align-items: center;
+  align-items: baseline;
 }
 
 header a {
@@ -84,6 +86,7 @@ header a {
   text-decoration: none;
   font-weight: bold;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 /* ヘッダーのアニメーション */
@@ -749,55 +752,82 @@ footer {
 }
 
 /* =========================================
-   13. インスタグラムアイコンの調整
+   13. インスタグラムアイコンと文字の調整（修正版）
    ========================================= */
 
-/* インスタグラムカラーの定義 */
-.insta-color {
-    /* インスタ公式のようなグラデーションを指定 */
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    /* 背景色を文字の形に切り抜く */
+/* --- 1. 親（枠）の設定：配置だけを担当 --- */
+.insta-icon,
+.footer-insta-icon {
+    display: inline-flex;       /* 横並び */
+    align-items: baseline;      /* 文字の底辺で揃える */
+    text-decoration: none;      /* 下線なし */
+}
+
+/* --- 2. 中身（アイコンと文字）の設定：ここで色をつける --- */
+/* ヘッダー・フッターのアイコン(i) と 文字(.insta-text) をまとめて指定 */
+.insta-icon i,
+.footer-insta-icon i,
+.insta-text {
+    /* ▼▼ グラデーション設定 ▼▼ */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    
+    /* 背景を文字の形に切り抜く */
     -webkit-background-clip: text;
-    /* 文字自体の色を透明にする（背景色を見せるため） */
+    background-clip: text;
+    
+    /* 文字自体の色を透明にする */
     color: transparent;
-    /* 他のスタイルと競合しないようimportantをつける */
-    display: inline-block;
+    
+    /* 確実に適用させるために表示形式を指定 */
+    display: inline-block; 
 }
 
-/* ヘッダーのインスタアイコン */
+
+/* --- 3. 文字（Instagram）の位置調整 --- */
+.insta-text {
+    margin-left: 8px;      /* アイコンとの距離 */
+    font-weight: bold;     /* 太字 */
+    position: static;
+}
+
+
+/* --- 4. ヘッダー固有の調整 --- */
+.insta-icon {
+    font-size: 1.1rem;     /* 全体の基準サイズ */
+    height: 100%;
+}
 .insta-icon i {
-    font-size: 1.8rem; /* 文字より少し大きく */
-}
-/* ヘッダーアイコンにグラデーションを適用 */
-.insta-icon i {
-    /* 上記の.insta-colorと同じ設定 */
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    -webkit-background-clip: text;
-    color: transparent;
+    font-size: 1.4rem;     /* アイコンサイズ */
+    
+    /* アイコンの位置微調整（文字の底辺に合わせると浮くため下げる） */
+    transform: translateY(3px);
 }
 
 
-/* フッターのインスタアイコン */
-.footer-insta-icon i {
-    text-decoration: none;
-    font-size: 2.2rem; /* フッターは目立つように少し大きく */
+/* --- 5. フッター固有の調整 --- */
+.footer-insta-icon {
+    width: auto;
+    font-size: 1.2rem;
     transition: opacity 0.3s;
 }
-/* フッターアイコンにグラデーションを適用 */
 .footer-insta-icon i {
-    /* 上記の.insta-colorと同じ設定 */
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    -webkit-background-clip: text;
-    color: transparent;
+    font-size: 1.8rem;
+    transform: translateY(4px); /* フッター用位置調整 */
 }
-
 .footer-insta-icon:hover {
     opacity: 0.7;
 }
 
-/* スマホメニュー内のアイコン調整 */
+
+/* --- 6. スマホメニュー内の調整 --- */
 @media screen and (max-width: 768px) {
+    .insta-icon {
+        font-size: 1.2rem;
+        padding: 10px 0;
+        align-items: center; /* スマホでは中央揃えに戻す */
+    }
     .insta-icon i {
-        font-size: 2rem; /* スマホメニュー内ではタップしやすいよう大きく */
+        font-size: 1.6rem;
+        transform: none;     /* 位置調整リセット */
     }
 }
