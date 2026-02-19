@@ -33,11 +33,24 @@
         observer.observe(target);
     });
 
-    // 3. アコーディオン（FAQ）
+   // 3. アコーディオン（FAQ）
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
+            // アコーディオンの開閉
             question.parentNode.classList.toggle('open');
+
+            // クリックされた質問のテキストを取得（「＋」マークや前後の改行・空白を削除）
+            const questionText = question.innerText.replace('＋', '').trim();
+            
+            // 質問のID（faq_beginner など）も取得しておくと分析に便利です
+            const questionId = question.id;
+
+            // GA4へイベントを送信
+            gtag('event', 'faq_open', {
+                'faq_id': questionId,        // 例: 'faq_beginner'
+                'faq_text': questionText     // 例: 'Q. 野球未経験ですが、参加できますか？'
+            });
         });
     });
 
